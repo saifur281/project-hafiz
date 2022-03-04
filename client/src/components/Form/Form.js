@@ -95,12 +95,12 @@ const Form = ({ currentId, setCurrentId }) => {
         onSubmit={handleSubmit}
       >
         <Typography variant="h6">
-          {currentId ? `Editing "${post?.title}"` : "Creating a Memory"}
+          {currentId ? `Editing "${post?.title}"` : "Creating a Story"}
         </Typography>
         <TextField
           name="title"
           variant="outlined"
-          label="What's in your Mind"
+          label={`What's In Your Mind ${user?.result?.firstName}`}
           fullWidth
           value={postData.title}
           onChange={(e) => setPostData({ ...postData, title: e.target.value })}

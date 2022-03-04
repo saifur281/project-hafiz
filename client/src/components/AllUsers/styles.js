@@ -9,12 +9,12 @@ export default makeStyles((theme) => ({
 
   card: {
     padding: "20px 20px",
-    borderBottom: "3px solid #2fabd5",
+    borderBottom: "3px solid #d8af54",
     position: "relative",
     overflow: "visible",
 
     "&:hover": {
-      background: "#2fabd5",
+      background: "#d8af54",
       transition: "0.9s all ease",
       cursor: "pointer",
       color: "#fff",
@@ -26,7 +26,7 @@ export default makeStyles((theme) => ({
     width: "100px",
     height: "100px",
     objectFit: "cover",
-    border: "5px solid #2fabd5",
+    border: "5px solid #d8af54",
     borderRadius: "100%",
     display: "flex",
     margin: "0 auto",

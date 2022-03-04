@@ -22,6 +22,10 @@ export default makeStyles((theme) => ({
   },
   buttonSubmit: {
     marginBottom: 10,
+    backgroundColor: "#030303",
+    "&:hover": {
+      backgroundColor: "#deb353 !important",
+    },
   },
   gridCont: {
     width: "40%",

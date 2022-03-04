@@ -55,7 +55,7 @@ export default makeStyles(() => ({
     margin: "0 auto",
     color: "#fff",
     border: "none",
-    background: "green",
+    background: "#d7ae54",
     padding: "8px 20px",
     cursor: "pointer",
   },
@@ -77,7 +77,7 @@ export default makeStyles(() => ({
 
   // FORM PAPER
   formPaper: {
-    background: "#2fabd5",
+    background: "#d7ae54",
     boxShadow: "0px 0px 25px #117b9fa3",
     padding: "50px",
     marginTop: "40px",
@@ -128,7 +128,7 @@ export default makeStyles(() => ({
   submitBtn: {
     padding: "10px 25px",
     border: "none",
-    background: "green",
+    background: "#000000",
     color: "#fff",
     cursor: "pointer",
     marginRight: "10px",

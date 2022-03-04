@@ -11,7 +11,7 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import decode from "jwt-decode";
 
-import memoriesLogo from "../../images/memoriesLogo.png";
+import memoriesLogo from "../../images/logo1.png";
 import memoriesText from "../../images/memoriesText.png";
 import * as actionType from "../../constants/actionTypes";
 import useStyles from "./styles";
@@ -50,13 +50,6 @@ const Navbar = () => {
     <AppBar className={classes.appBar} position="static" color="inherit">
       <Link to="/" className={classes.brandContainer}>
         <img
-          component={Link}
-          to="/"
-          src={memoriesText}
-          alt="icon"
-          height="45px"
-        />
-        <img
           className={classes.image}
           src={memoriesLogo}
           alt="icon"
@@ -66,7 +59,7 @@ const Navbar = () => {
 
       <Toolbar className={classes.toolbar}>
         <Link className={classes.userNav} to="/users/all">
-          <Button color="secondary">All Users</Button>
+          <Button style={{ color: "#010101" }}>All Users</Button>
         </Link>
         {user?.result ? (
           <div className={classes.profile}>
@@ -96,6 +89,7 @@ const Navbar = () => {
           </div>
         ) : (
           <Button
+            className={classes.logout}
             component={Link}
             to="/auth"
             variant="contained"

@@ -69,7 +69,7 @@ export default makeStyles({
     width: " 50px",
     height: "50px",
     borderRadius: "100px",
-    border: "3px solid #4446",
+    border: "3px solid #d8af54",
   },
   nameContainer: {
     display: "flex",
@@ -79,7 +79,9 @@ export default makeStyles({
   name: {
     fontWeight: "600",
     textTransform: "capitalize",
+    color: "#030303",
   },
+
   createdAt: {
     fontSize: "14px",
     color: "#444",
@@ -99,8 +101,9 @@ export default makeStyles({
     right: "28%",
   },
   edit: {
-    background: "green",
+    background: "#d8af54",
     border: "none",
     cursor: "pointer",
+    padding: "8px 18px",
   },
 });

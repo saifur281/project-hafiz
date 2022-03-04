@@ -1,9 +1,14 @@
-
 body {
-    background-color: #f7f8fc;
+  background-color: #f7f8fc;
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  text-decoration: none !important;
 }
 
 * {
-    /* font-family: 'Noto Sans JP' !important; */
-    font-family: 'Heebo', sans-serif !important;
+  /* font-family: 'Noto Sans JP' !important; */
+  font-family: "Heebo", sans-serif !important;
 }
