@@ -6,11 +6,10 @@ import {
   CardMedia,
   Button,
   Typography,
-  ButtonBase,
+  LinearProgress,
 } from "@material-ui/core/";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import DeleteIcon from "@material-ui/icons/Delete";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import ThumbUpAltOutlined from "@material-ui/icons/ThumbUpAltOutlined";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
@@ -28,7 +27,7 @@ const Post = ({ post, setCurrentId }) => {
   const history = useHistory();
   const classes = useStyles();
 
-  const userId = user?.result.googleId || user?.result?._id;
+  const userId = user?.result?._id;
   const hasLikedPost = post?.likes?.find((like) => like === userId);
 
   const handleLike = async () => {
@@ -98,9 +97,13 @@ const Post = ({ post, setCurrentId }) => {
           />
           <div className={classes.nameContainer}>
             {/* <span className={classes.name}>{post?.user?.firstName}</span> */}
-            <Link to={`/profile/${post.creator}`}>
+            <Link to={`/profile/${post?.creator}`}>
               <span className={classes.name}>
-                {userInfo.firstName + " " + userInfo.lastName}
+                {!userInfo?.firstName ? (
+                  <LinearProgress />
+                ) : (
+                  userInfo?.firstName + " " + userInfo?.lastName
+                )}
               </span>
             </Link>
             <span className={classes.createdAt}>
@@ -110,8 +113,7 @@ const Post = ({ post, setCurrentId }) => {
           {/* EDIT */}
 
           <div className={classes.editBtn}>
-            {(user?.result?.googleId === post?.creator ||
-              user?.result?._id === post?.creator) && (
+            {user?.result?._id === post?.creator && (
               <div name="edit">
                 <button
                   onClick={(e) => {
@@ -131,6 +133,7 @@ const Post = ({ post, setCurrentId }) => {
 
         <div className={classes.postBody}>
           <p className={classes.postText}>{post.title}</p>
+
           <img
             className={classes.postImg}
             src={

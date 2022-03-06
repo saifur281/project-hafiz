@@ -5,7 +5,7 @@ import { updatedUser, getSingleUsers } from "../../actions/auth";
 import { useParams, useHistory } from "react-router-dom";
 import * as actionType from "../../constants/actionTypes";
 import FileBase from "react-file-base64";
-import { Grow, Link, CircularProgress } from "@material-ui/core";
+import { Grow, Link, LinearProgress } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 function Profile() {
@@ -62,6 +62,7 @@ function Profile() {
 
     await dispatch(updatedUser(currentUser, { ...formData }));
 
+    setToggleForm(false);
     window.location.reload();
   };
 
@@ -70,7 +71,7 @@ function Profile() {
       <div className={classes.container}>
         <div className={classes.leftSide}>
           {!singleUsers?.coverImg ? (
-            <CircularProgress />
+            <LinearProgress className={classes.progressBar} />
           ) : (
             <img
               className={classes.coverImg}
@@ -84,7 +85,7 @@ function Profile() {
           )}
 
           {!singleUsers?.profileImg ? (
-            <CircularProgress />
+            <LinearProgress className={classes.progressBar} />
           ) : (
             <img
               className={classes.profileImg}
@@ -196,7 +197,6 @@ function Profile() {
                             onClick={() =>
                               setFormData({ ...formData, profileImg: null })
                             }
-                            className={classes.clearBtn}
                           >
                             <DeleteIcon />
                           </button>
@@ -225,7 +225,6 @@ function Profile() {
                             onClick={() =>
                               setFormData({ ...formData, coverImg: null })
                             }
-                            className={classes.clearBtn}
                           >
                             <DeleteIcon />
                           </button>

@@ -11,8 +11,7 @@ const Form = ({ currentId, setCurrentId }) => {
   const user = JSON.parse(localStorage.getItem("profile"));
   const [postData, setPostData] = useState({
     title: "",
-    message: "",
-    tags: [],
+
     selectedFile: "",
   });
   const post = useSelector((state) =>
@@ -26,7 +25,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
   const clear = () => {
     setCurrentId(0);
-    setPostData({ title: "", message: "", tags: [], selectedFile: "" });
+    setPostData({ title: "", selectedFile: "" });
   };
 
   useEffect(() => {
@@ -78,7 +77,6 @@ const Form = ({ currentId, setCurrentId }) => {
     <Paper className={classes.paper} elevation={6}>
       <form
         autoComplete="off"
-        noValidate
         className={`${classes.root} ${classes.form}`}
         onSubmit={handleSubmit}
       >
@@ -86,6 +84,7 @@ const Form = ({ currentId, setCurrentId }) => {
           {currentId ? `Editing "${post?.title}"` : "Creating a Story"}
         </Typography>
         <TextField
+          required
           name="title"
           variant="outlined"
           label={`What's In Your Mind ${user?.result?.firstName}`}
@@ -129,15 +128,6 @@ const Form = ({ currentId, setCurrentId }) => {
         >
           Submit
         </Button>
-        {/* <Button
-          variant="contained"
-          color="secondary"
-          size="small"
-          onClick={clear}
-          fullWidth
-        >
-          Clear
-        </Button> */}
       </form>
     </Paper>
   );

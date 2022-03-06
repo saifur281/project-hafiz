@@ -135,4 +135,11 @@ export default makeStyles(() => ({
     width: "48%",
     marginBottom: "10px",
   },
+
+  progressBar: {
+    width: "100px",
+    display: "flex",
+    margin: "150px auto",
+    background: "#d7ae54",
+  },
 }));

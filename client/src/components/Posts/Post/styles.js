@@ -106,4 +106,12 @@ export default makeStyles({
     cursor: "pointer",
     padding: "8px 18px",
   },
+
+  progressBar: {
+    width: "94%",
+    margin: "auto",
+    display: "flex",
+    background: "#d8af54",
+    height: "350px",
+  },
 });
