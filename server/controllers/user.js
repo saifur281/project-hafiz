@@ -82,8 +82,7 @@ export const updateUser = async (req, res) => {
     birthDate,
     profileImg,
     coverImg,
-    followers,
-    following,
+
     desc,
     city,
     homeTown,
@@ -102,8 +101,7 @@ export const updateUser = async (req, res) => {
     birthDate,
     profileImg,
     coverImg,
-    followers,
-    following,
+
     desc,
     city,
     homeTown,

@@ -5,7 +5,7 @@ import { updatedUser, getSingleUsers } from "../../actions/auth";
 import { useParams, useHistory } from "react-router-dom";
 import * as actionType from "../../constants/actionTypes";
 import FileBase from "react-file-base64";
-import { Grow, Link } from "@material-ui/core";
+import { Grow, Link, CircularProgress } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 function Profile() {
@@ -69,24 +69,34 @@ function Profile() {
     <>
       <div className={classes.container}>
         <div className={classes.leftSide}>
-          <img
-            className={classes.coverImg}
-            src={
-              singleUsers?.coverImg
-                ? singleUsers?.coverImg
-                : `${REACT_APP_API_URL}/images/coverPic.png`
-            }
-            alt="name"
-          />
-          <img
-            className={classes.profileImg}
-            src={
-              singleUsers?.profileImg
-                ? singleUsers?.profileImg
-                : `${REACT_APP_API_URL}/images/userAvatar.png`
-            }
-            alt="name"
-          />
+          {!singleUsers?.coverImg ? (
+            <CircularProgress />
+          ) : (
+            <img
+              className={classes.coverImg}
+              src={
+                singleUsers?.coverImg
+                  ? singleUsers?.coverImg
+                  : `${REACT_APP_API_URL}/images/coverPic.png`
+              }
+              alt="name"
+            />
+          )}
+
+          {!singleUsers?.profileImg ? (
+            <CircularProgress />
+          ) : (
+            <img
+              className={classes.profileImg}
+              src={
+                singleUsers?.profileImg
+                  ? singleUsers?.profileImg
+                  : `${REACT_APP_API_URL}/images/userAvatar.png`
+              }
+              alt="name"
+            />
+          )}
+
           <p className={classes.name}>
             {singleUsers?.firstName + " " + singleUsers?.lastName}
           </p>
@@ -265,16 +275,6 @@ function Profile() {
                     className={classes.input}
                   />
 
-                  {/* <input
-                placeholder="Password"
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={(e) =>
-                  setFormData({ ...formData, password: e.target.value })
-                }
-                className={classes.input}
-              /> */}
                   <button className={classes.submitBtn} type="submit">
                     Submit
                   </button>
